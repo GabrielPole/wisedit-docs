@@ -1,0 +1,14 @@
+services:
+  wisedit-docs:
+    build: .
+    container_name: wisedit-docs
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+    deploy:
+      resources:
+        limits:
+          memory: 2G

@@ -1,0 +1,22 @@
+{
+  "name": "wisedit-docs",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build && npm run pagefind",
+    "preview": "astro preview",
+    "pagefind": "pagefind --site dist --glob \"**/*.html\"",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "@astrojs/mdx": "^3.1.7",
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "pagefind": "^1.1.1"
+  }
+}
