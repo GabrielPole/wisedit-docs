@@ -2,6 +2,8 @@
 
 Site de documentação oficial do Wisedit, criado com Astro + MDX.
 
+**🌐 Site em produção:** https://wisedit-docs.polelove.art
+
 ## ✅ O que já está configurado
 
 - ✅ Projeto Astro criado
@@ -50,8 +52,15 @@ wisedit-docs/
 ├── src/
 │   ├── content/
 │   │   └── docs/              ← Suas documentações aqui (.mdx)
+│   │       ├── index.mdx
 │   │       ├── intro.mdx
-│   │       └── guia-inicio.mdx
+│   │       ├── guia-inicio.mdx
+│   │       ├── campos.md
+│   │       ├── usuarios.md
+│   │       ├── assets/
+│   │       ├── conexoes/
+│   │       ├── execucoes/
+│   │       └── listagem-de-politicas/
 │   ├── layouts/               ← Layouts de página
 │   │   ├── BaseLayout.astro
 │   │   └── DocsLayout.astro
@@ -70,6 +79,7 @@ wisedit-docs/
 ├── astro.config.mjs           ← Configuração do Astro
 ├── package.json               ← Dependências
 ├── docker-compose.yml         ← Configuração Docker
+├── Dockerfile                 ← Imagem Docker
 ├── PRD.md                     ← Documento de requisitos
 ├── AI_INSTRUCTIONS.md         ← Instruções para IA
 └── SETUP.md                   ← Guia de instalação
@@ -102,16 +112,23 @@ O Pagefind irá indexar todas as páginas automaticamente durante o deploy.
 
 ## 🚀 Deploy Automático
 
+✅ **Deploy já configurado e funcionando!**
+
 Quando você fizer push para as branches `main` ou `staging`, o GitHub Actions automaticamente:
 
-1. Instala as dependências
+1. Remove cache e reinstala dependências
 2. Faz o build do site
-3. Indexa a busca
+3. Indexa a busca (Pagefind)
 4. Publica no Cloudflare Pages
 
-**Configuração necessária no GitHub:**
-- `CLOUDFLARE_API_TOKEN` - Token da API do Cloudflare
-- `CLOUDFLARE_ACCOUNT_ID` - ID da sua conta Cloudflare
+**URLs de deploy:**
+- **Produção (main):** https://wisedit-docs.polelove.art
+- **Staging:** Próximo deploy na branch staging
+
+**Secrets configurados no GitHub:**
+- ✅ `CLOUDFLARE_API_TOKEN`
+- ✅ `CLOUDFLARE_ACCOUNT_ID`
+- ✅ `GITHUB_TOKEN` (automático)
 
 ## 🛠️ Comandos Docker
 

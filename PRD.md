@@ -4,9 +4,9 @@
 
 Um site de documentação simples e bonito para o Wisedit, parecido com a [documentação do Discord](https://discord.com/developers/docs/intro).
 
-**Nome:** Wisedit Docs  
-**Site:** wisedit-docs.polelove.art  
-**Status:** Em desenvolvimento
+**Nome:** Wisedit Docs
+**Site:** wisedit-docs.polelove.art
+**Status:** ✅ Em produção
 
 ---
 
@@ -156,4 +156,4 @@ Coisas que podemos adicionar depois:
 
 ---
 
-**Última atualização:** 2025-12-05
+**Última atualização:** 2025-12-06

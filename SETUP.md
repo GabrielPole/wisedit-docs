@@ -9,7 +9,7 @@ Guia simples para instalar tudo que você precisa.
 1. Homebrew (gerenciador de programas)
 2. Node.js (roda o site)
 3. Git (salva seu trabalho)
-4. Docker (opcional - roda tudo isolado)
+4. Docker (OBRIGATÓRIO - roda tudo isolado)
 5. VSCode (editor de código)
 
 **Tempo estimado:** 15-20 minutos
@@ -74,9 +74,9 @@ git config --global user.email "seu@email.com"
 
 ---
 
-## 🐳 Passo 4: Instalar Docker (Opcional)
+## 🐳 Passo 4: Instalar Docker (OBRIGATÓRIO)
 
-Docker deixa tudo mais organizado, mas não é obrigatório.
+Docker é OBRIGATÓRIO para este projeto. Não use npm diretamente.
 
 ```bash
 brew install --cask docker
@@ -167,14 +167,10 @@ Cole isso dentro:
 ```javascript
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import pagefind from 'astro-pagefind';
 
 export default defineConfig({
   site: 'https://wisedit-docs.polelove.art',
-  integrations: [
-    mdx(),
-    pagefind(), // Sempre por último!
-  ],
+  integrations: [mdx()],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
@@ -249,7 +245,7 @@ Cole isso dentro:
 FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
 EXPOSE 4321
 CMD ["npm", "run", "dev", "--", "--host"]
@@ -260,8 +256,6 @@ CMD ["npm", "run", "dev", "--", "--host"]
 Cole isso dentro:
 
 ```yaml
-version: '3.9'
-
 services:
   wisedit-docs:
     build: .
@@ -289,7 +283,7 @@ Crie o arquivo: `.github/workflows/deploy.yml`
 Cole isso dentro:
 
 ```yaml
-name: Deploy
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -297,32 +291,39 @@ on:
       - main
       - staging
 
+permissions:
+  contents: read
+  deployments: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
-      - name: Install
-        run: npm ci
-      
+
+      - name: Install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+
       - name: Build
         run: npm run build
-      
-      - name: Deploy
+
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: wisedit-docs
           directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ---

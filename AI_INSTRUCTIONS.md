@@ -3,7 +3,7 @@
 > **IMPORTANTE:** Sempre leia este arquivo antes de mexer no projeto.  
 > **SEMPRE pergunte antes de atualizar este arquivo.**
 
-**Última atualização:** 2025-12-05
+**Última atualização:** 2025-12-06
 
 ---
 
@@ -45,8 +45,19 @@ wisedit-docs/
 ├── src/
 │   ├── content/
 │   │   └── docs/              ← Documentação aqui
+│   │       ├── index.mdx
 │   │       ├── intro.mdx
-│   │       └── guia.mdx
+│   │       ├── guia-inicio.mdx
+│   │       ├── campos.md
+│   │       ├── usuarios.md
+│   │       ├── assets/
+│   │       │   └── index.mdx
+│   │       ├── conexoes/
+│   │       │   └── index.mdx
+│   │       ├── execucoes/
+│   │       │   └── index.mdx
+│   │       └── listagem-de-politicas/
+│   │           └── index.mdx
 │   ├── components/            ← Componentes reutilizáveis
 │   ├── layouts/               ← Layouts de página
 │   └── assets/                ← Imagens e GIFs
@@ -363,34 +374,54 @@ Pode prosseguir?"
 
 ## 📚 Histórico de Decisões
 
+### 2025-12-06 - Site em Produção
+
+**Decisão:** Site publicado em wisedit-docs.polelove.art
+**Por quê:** Deploy automático funcionando perfeitamente
+**Impacto:** Site público e acessível
+
+---
+
+**Decisão:** Estrutura de documentação expandida
+**Por quê:** Organizar conteúdo por seções (Assets, Conexões, Execuções, etc.)
+**Impacto:** Documentação mais organizada e escalável
+
+---
+
 ### 2025-12-05 - Início do Projeto
 
-**Decisão:** Usar Astro + arquivos .mdx  
-**Por quê:** Simples, rápido, sem banco de dados  
+**Decisão:** Usar Astro + arquivos .mdx
+**Por quê:** Simples, rápido, sem banco de dados
 **Impacto:** Site estático, fácil de manter
 
 ---
 
-**Decisão:** Pagefind para busca  
-**Por quê:** Grátis, funciona offline, automático  
+**Decisão:** Pagefind para busca
+**Por quê:** Grátis, funciona offline, automático
 **Impacto:** Busca rápida sem complicação
 
 ---
 
-**Decisão:** Deploy automático via GitHub Actions  
-**Por quê:** Menos trabalho manual, menos erros  
+**Decisão:** Deploy automático via GitHub Actions
+**Por quê:** Menos trabalho manual, menos erros
 **Impacto:** Push e pronto, site atualiza sozinho
 
 ---
 
-**Decisão:** Homebrew para instalar tudo  
-**Por quê:** Simples para usuários Mac/Linux  
+**Decisão:** Docker OBRIGATÓRIO
+**Por quê:** Ambiente consistente e isolado
+**Impacto:** Menos problemas de "funciona na minha máquina"
+
+---
+
+**Decisão:** Homebrew para instalar tudo
+**Por quê:** Simples para usuários Mac/Linux
 **Impacto:** Uma linha instala cada ferramenta
 
 ---
 
-**Decisão:** Sem versionamento de docs por enquanto  
-**Por quê:** Adicionar depois se precisar  
+**Decisão:** Sem versionamento de docs por enquanto
+**Por quê:** Adicionar depois se precisar
 **Impacto:** Código mais simples agora
 
 ---
