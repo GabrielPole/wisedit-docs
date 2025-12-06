@@ -1,0 +1,154 @@
+---
+title: Usuários
+description: Guia completo sobre a gestão de usuários na plataforma Wisedit, incluindo perfis de acesso, permissões, cadastro e edição de usuários.
+---
+
+import Tabs from '../../components/Tabs.astro';
+import Steps from '../../components/Steps.astro';
+import Callout from '../../components/Callout.astro';
+
+A área de **Usuários** da Wisedit é responsável pela **gestão de acesso à plataforma**.
+
+Permite que administradores criem, editem e controlem perfis e permissões dos usuários que operam o sistema.
+
+Além disso, a seção permite **ativar, inativar e redefinir senhas**, mantendo o controle de acesso alinhado com as melhores práticas de governança e compliance.
+
+## Perfis Disponíveis
+
+Os usuários da Wisedit são organizados por perfis de acesso, que definem o nível de permissão sobre as funcionalidades da plataforma.
+
+<Tabs>
+  <div class="tab-list">
+    <button class="tab-button">Administrador</button>
+    <button class="tab-button">Editor</button>
+    <button class="tab-button">Somente Leitura</button>
+  </div>
+
+  <div class="tab-content">
+
+O perfil **Administrador** possui acesso total a todas as funcionalidades da plataforma.
+
+| Funcionalidade | Criar | Ler | Editar | Excluir |
+|----------------|:-----:|:---:|:------:|:-------:|
+| Políticas | ✅ | ✅ | ✅ | ✅ |
+| Campos | ✅ | ✅ | ✅ | ✅ |
+| Conexões e Integração | ✅ | ✅ | ✅ | ✅ |
+| Usuários | ✅ | ✅ | ✅ | ✅ |
+| Relatórios | ✅ | ✅ | ✅ | ✅ |
+
+  </div>
+
+  <div class="tab-content">
+
+O perfil **Editor** pode criar e editar conteúdos, mas não pode excluir ou gerenciar usuários e conexões.
+
+| Funcionalidade | Criar | Ler | Editar | Excluir |
+|----------------|:-----:|:---:|:------:|:-------:|
+| Políticas | ✅ | ✅ | ✅ | ⛔ |
+| Campos | ✅ | ✅ | ✅ | ⛔ |
+| Conexões e Integração | ⛔ | ✅ | ⛔ | ⛔ |
+| Usuários | ⛔ | ✅ | ⛔ | ⛔ |
+| Relatórios | ✅ | ✅ | ✅ | ⛔ |
+
+  </div>
+
+  <div class="tab-content">
+
+O perfil **Somente Leitura** pode apenas visualizar as informações da plataforma.
+
+| Funcionalidade | Criar | Ler | Editar | Excluir |
+|----------------|:-----:|:---:|:------:|:-------:|
+| Políticas | ⛔ | ✅ | ⛔ | ⛔ |
+| Campos | ⛔ | ✅ | ⛔ | ⛔ |
+| Conexões e Integração | ⛔ | ✅ | ⛔ | ⛔ |
+| Usuários | ⛔ | ✅ | ⛔ | ⛔ |
+| Relatórios | ⛔ | ✅ | ⛔ | ⛔ |
+
+  </div>
+</Tabs>
+
+## Listagem de Usuários
+
+A listagem de usuários pode ser acessada pelo menu lateral (Sidebar).
+
+Nela é possível:
+
+- Filtrar usuários por nome, e-mail, perfil e situação (ativo/inativo)
+- Adicionar novos usuários
+- Editar usuários existentes
+
+{/* TODO: Adicionar imagem usuarios-listagem.jpg */}
+{/* ![Listagem de usuários](./assets/usuarios-listagem.jpg) */}
+
+---
+
+## Adicionar Novo Usuário
+
+Para adicionar um novo usuário:
+
+<Steps>
+<ol>
+<li>Acesse o menu lateral e clique em **Usuários**</li>
+<li>Clique no botão **ADICIONAR**</li>
+<li>Preencha os seguintes campos obrigatórios:
+   - Nome completo
+   - E-mail
+   - Perfil de acesso
+   - Situação (por padrão, vem como "Ativo")
+</li>
+<li>Clique em **Salvar**</li>
+</ol>
+</Steps>
+
+{/* TODO: Adicionar imagem usuarios-adicionar.gif */}
+{/* ![Adicionar novo usuário](./assets/usuarios-adicionar.gif) */}
+
+---
+
+## Editar Usuário
+
+Para editar um usuário:
+
+<Steps>
+<ol>
+<li>Localize o usuário na tabela</li>
+<li>Clique no ícone de lápis</li>
+<li>Altere os campos desejados:
+   - Nome
+   - Perfil
+   - Situação (Ativo/Inativo)
+</li>
+<li>Clique em **Salvar**</li>
+</ol>
+</Steps>
+
+{/* TODO: Adicionar imagem usuarios-editar.gif */}
+{/* ![Editar usuário](./assets/usuarios-editar.gif) */}
+
+<Callout type="caution" title="Importante">
+
+- O campo **e-mail não pode ser alterado** após o cadastro
+- Usuários **não podem ser deletados**. Caso necessário, utilize a função de ativar/inativar
+- Para dúvidas, entre em contato com nosso time: **help@wisedit.app**
+
+</Callout>
+
+---
+
+## Solicitar Nova Senha
+
+A redefinição de senha está disponível apenas para usuários com perfil **Administrador**.
+
+Para executar essa ação:
+
+<Steps>
+<ol>
+<li>Acesse **Usuários**</li>
+<li>Selecione o usuário desejado</li>
+<li>Clique no ícone de edição (lápis)</li>
+<li>No modal, clique em **NOVA SENHA** e confirme a ação</li>
+</ol>
+</Steps>
+
+{/* TODO: Adicionar imagem usuarios-nova-senha.gif */}
+{/* ![Solicitar nova senha](./assets/usuarios-nova-senha.gif) */}
