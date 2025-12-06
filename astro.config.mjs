@@ -7,6 +7,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Wisedit Docs',
+      logo: {
+        light: './src/assets/logo-light.svg',
+        dark: './src/assets/logo-dark.svg',
+        replacesTitle: true,
+      },
       defaultLocale: 'root',
       locales: {
         root: {

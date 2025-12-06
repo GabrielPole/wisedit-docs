@@ -1,0 +1,130 @@
+---
+title: Usuários
+description: Guia completo sobre a gestão de usuários na plataforma Wisedit, incluindo perfis de acesso, permissões, cadastro e edição de usuários.
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+A área de **Usuários** da Wisedit é responsável pela **gestão de acesso à plataforma**.
+
+Permite que administradores criem, editem e controlem perfis e permissões dos usuários que operam o sistema.
+
+Além disso, a seção permite **ativar, inativar e redefinir senhas**, mantendo o controle de acesso alinhado com as melhores práticas de governança e compliance.
+
+## Perfis Disponíveis
+
+Os usuários da Wisedit são organizados por perfis de acesso, que definem o nível de permissão sobre as funcionalidades da plataforma.
+
+<Tabs>
+  <TabItem label="Administrador">
+    O perfil **Administrador** possui acesso total a todas as funcionalidades da plataforma.
+
+    | Funcionalidade | Criar | Ler | Editar | Excluir |
+    |----------------|:-----:|:---:|:------:|:-------:|
+    | Políticas | ✅ | ✅ | ✅ | ✅ |
+    | Campos | ✅ | ✅ | ✅ | ✅ |
+    | Conexões e Integração | ✅ | ✅ | ✅ | ✅ |
+    | Usuários | ✅ | ✅ | ✅ | ✅ |
+    | Relatórios | ✅ | ✅ | ✅ | ✅ |
+  </TabItem>
+
+  <TabItem label="Editor">
+    O perfil **Editor** pode criar e editar conteúdos, mas não pode excluir ou gerenciar usuários e conexões.
+
+    | Funcionalidade | Criar | Ler | Editar | Excluir |
+    |----------------|:-----:|:---:|:------:|:-------:|
+    | Políticas | ✅ | ✅ | ✅ | ⛔ |
+    | Campos | ✅ | ✅ | ✅ | ⛔ |
+    | Conexões e Integração | ⛔ | ✅ | ⛔ | ⛔ |
+    | Usuários | ⛔ | ✅ | ⛔ | ⛔ |
+    | Relatórios | ✅ | ✅ | ✅ | ⛔ |
+  </TabItem>
+
+  <TabItem label="Somente Leitura">
+    O perfil **Somente Leitura** pode apenas visualizar as informações da plataforma.
+
+    | Funcionalidade | Criar | Ler | Editar | Excluir |
+    |----------------|:-----:|:---:|:------:|:-------:|
+    | Políticas | ⛔ | ✅ | ⛔ | ⛔ |
+    | Campos | ⛔ | ✅ | ⛔ | ⛔ |
+    | Conexões e Integração | ⛔ | ✅ | ⛔ | ⛔ |
+    | Usuários | ⛔ | ✅ | ⛔ | ⛔ |
+    | Relatórios | ⛔ | ✅ | ⛔ | ⛔ |
+  </TabItem>
+</Tabs>
+
+## Listagem de Usuários
+
+A listagem de usuários pode ser acessada pelo menu lateral (Sidebar).
+
+Nela é possível:
+
+- Filtrar usuários por nome, e-mail, perfil e situação (ativo/inativo)
+- Adicionar novos usuários
+- Editar usuários existentes
+
+<!-- TODO: Adicionar imagem usuarios-listagem.jpg -->
+<!-- ![Listagem de usuários](./assets/usuarios-listagem.jpg) -->
+
+---
+
+## Adicionar Novo Usuário
+
+Para adicionar um novo usuário:
+
+<Steps>
+1. Acesse o menu lateral e clique em **Usuários**
+2. Clique no botão **ADICIONAR**
+3. Preencha os seguintes campos obrigatórios:
+   - Nome completo
+   - E-mail
+   - Perfil de acesso
+   - Situação (por padrão, vem como "Ativo")
+4. Clique em **Salvar**
+</Steps>
+
+<!-- TODO: Adicionar imagem usuarios-adicionar.gif -->
+<!-- ![Adicionar novo usuário](./assets/usuarios-adicionar.gif) -->
+
+---
+
+## Editar Usuário
+
+Para editar um usuário:
+
+<Steps>
+1. Localize o usuário na tabela
+2. Clique no ícone de lápis
+3. Altere os campos desejados:
+   - Nome
+   - Perfil
+   - Situação (Ativo/Inativo)
+4. Clique em **Salvar**
+</Steps>
+
+<!-- TODO: Adicionar imagem usuarios-editar.gif -->
+<!-- ![Editar usuário](./assets/usuarios-editar.gif) -->
+
+:::caution[Importante]
+- O campo **e-mail não pode ser alterado** após o cadastro
+- Usuários **não podem ser deletados**. Caso necessário, utilize a função de ativar/inativar
+- Para dúvidas, entre em contato com nosso time: **help@wisedit.app**
+:::
+
+---
+
+## Solicitar Nova Senha
+
+A redefinição de senha está disponível apenas para usuários com perfil **Administrador**.
+
+Para executar essa ação:
+
+<Steps>
+1. Acesse **Usuários**
+2. Selecione o usuário desejado
+3. Clique no ícone de edição (lápis)
+4. No modal, clique em **NOVA SENHA** e confirme a ação
+</Steps>
+
+<!-- TODO: Adicionar imagem usuarios-nova-senha.gif -->
+<!-- ![Solicitar nova senha](./assets/usuarios-nova-senha.gif) -->
