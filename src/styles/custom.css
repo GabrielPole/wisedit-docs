@@ -1,0 +1,21 @@
+/* Estilos customizados para Wisedit Docs */
+
+:root {
+  --sl-color-accent-low: #1e3a5f;
+  --sl-color-accent: #58a6ff;
+  --sl-color-accent-high: #79c0ff;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f0f6fc;
+  --sl-color-gray-2: #c9d1d9;
+  --sl-color-gray-3: #8b949e;
+  --sl-color-gray-4: #6e7681;
+  --sl-color-gray-5: #484f58;
+  --sl-color-gray-6: #30363d;
+  --sl-color-black: #0d1117;
+}
+
+[data-theme='dark'] {
+  --sl-color-accent-low: #1e3a5f;
+  --sl-color-accent: #58a6ff;
+  --sl-color-accent-high: #79c0ff;
+}

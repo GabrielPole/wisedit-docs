@@ -1,14 +1,39 @@
 import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
+import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wisedit-docs.polelove.art',
-  integrations: [mdx()],
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-      wrap: true,
-    },
-  },
+  integrations: [
+    starlight({
+      title: 'Wisedit Docs',
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'Português',
+          lang: 'pt-BR',
+        },
+      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/GabrielPole/wisedit-docs',
+        },
+      ],
+      sidebar: [
+        {
+          label: 'Início',
+          autogenerate: { directory: 'inicio' },
+        },
+        {
+          label: 'Funcionalidades',
+          autogenerate: { directory: 'funcionalidades' },
+        },
+      ],
+      customCss: [
+        './src/styles/custom.css',
+      ],
+    }),
+  ],
 });
