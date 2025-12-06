@@ -1,17 +1,131 @@
+
+
 ---
-title: "Documentação Wisedit"
-description: "Página inicial da documentação"
+title: Onboarding do Wisedit
+description: Bem-vindo ao Wisedit — simplifique, edite e automatize decisões com mais autonomia. Guia completo para começar a usar a plataforma.
+template: splash
+hero:
+  title: Bem-vindo ao Wisedit
+  tagline: Simplifique, edite e automatize decisões com mais autonomia.
+  actions:
+    - text: Começar agora
+      link: "#primeiros-passos"
+      icon: right-arrow
+      variant: primary
+    - text: Conhecer os módulos
+      link: "#conheça-os-módulos-do-wisedit"
+      variant: secondary
 ---
 
-# Documentação Wisedit
+import { Card, CardGrid, Steps, LinkCard } from '@astrojs/starlight/components';
 
-Bem-vindo à documentação oficial do Wisedit.
+## Boas-vindas ao Wisedit
 
-## Seções Disponíveis
+Estamos felizes em ter você por aqui!
 
-- [Introdução](./inicio/intro)
-- [Guia de Início](./inicio/guia-inicio)
-- [Campos](./funcionalidades/campos)
-- [Usuários](./funcionalidades/usuarios)
+O Wisedit é um motor de decisão criado para ajudar sua empresa a gerenciar fluxos de políticas com mais agilidade e controle. Nesta página, você vai conhecer os principais recursos da plataforma e aprender como começar a usar o Wisedit com confiança.
 
-{/* Adicione mais conteúdo aqui */}
+---
+
+## Como o Wisedit pode te ajudar
+
+Com o Wisedit, você pode:
+
+- Criar e editar regras de negócio de forma intuitiva
+- Automatizar decisões com mais segurança
+- Gerenciar usuários e permissões facilmente
+- Integrar o motor com outras ferramentas da sua empresa
+
+:::tip[Você sabia?]
+Você não precisa ser técnico para configurar políticas de decisão. O Wisedit faz isso por você.
+:::
+
+---
+
+## Primeiros Passos
+
+Aqui está um checklist para te guiar:
+
+<Steps>
+1. Cadastre seus primeiros **Usuários**
+2. Crie os **Campos** que serão usados nas decisões
+3. Estruture sua primeira **Política**
+4. Teste a política com dados de exemplo
+5. Explore as **Integrações** disponíveis com sistemas externos
+</Steps>
+
+:::note[Dica]
+Siga esse fluxo e em poucos minutos você terá uma política pronta para rodar!
+:::
+
+---
+
+## Conheça os Módulos do Wisedit
+
+<CardGrid>
+  <Card title="Políticas" icon="document">
+    Monte e edite fluxos de decisão com blocos visuais. Ideal para centralizar as regras que orientam seu negócio.
+    
+    [Acessar documentação →](/politicas/)
+  </Card>
+  <Card title="Usuários" icon="setting">
+    Gerencie quem pode acessar o sistema e o que cada um pode fazer. Controle por papéis (administrador, editor, visualizador).
+    
+    [Acessar documentação →](/usuarios/)
+  </Card>
+  <Card title="Campos" icon="list-format">
+    Defina os dados que serão usados nas decisões. Exemplo: "faixa de risco", "valor da operação", "tipo de produto".
+    
+    [Acessar documentação →](/campos/)
+  </Card>
+  <Card title="Integrações" icon="puzzle">
+    Conecte o Wisedit com seus sistemas internos ou externos. APIs simples e prontas para usar com ferramentas de mercado.
+    
+    [Acessar documentação →](/conexoes/)
+  </Card>
+</CardGrid>
+
+---
+
+## Dicas Rápidas para Aproveitar Melhor
+
+- **Use nomes claros** nos seus campos e políticas para facilitar a manutenção
+- **Teste as políticas** com dados simulados antes de ativar
+- **Organize os usuários** por time ou área (ex: Riscos, Compliance, Produtos)
+- **Automatize aprovações** com integrações diretas (ex: CRM, ERP)
+
+---
+
+## Dúvidas Frequentes (FAQ)
+
+### Como criar uma nova política?
+
+Acesse "Políticas" no menu lateral e clique em "Nova Política". Escolha os campos, defina as regras e pronto!
+
+[Ver guia completo de Políticas →](/politicas/)
+
+### Como adicionar um novo campo?
+
+Vá até "Campos" e clique em "Adicionar campo". Defina o nome, tipo de dado e onde será usado.
+
+[Ver guia completo de Campos →](/campos/)
+
+### Como integro o Wisedit com outros sistemas?
+
+No módulo "Integrações" você encontra instruções detalhadas e exemplos práticos.
+
+<CardGrid>
+  <LinkCard title="Integração REST" href="/integracao-rest/" description="Conecte APIs RESTful externas" />
+  <LinkCard title="Integração SQL" href="/integracao-sql/" description="Conecte bancos de dados relacionais" />
+  <LinkCard title="Integração NoSQL" href="/integracao-nosql/" description="Conecte bancos MongoDB" />
+  <LinkCard title="Integração SOAP" href="/integracao-soap/" description="Conecte web services SOAP" />
+</CardGrid>
+
+---
+
+## Precisa de Ajuda?
+
+Entre em contato com nosso time de suporte:
+
+- **Chat direto** dentro do sistema
+- **E-mail:** suporte@wisedit.com
