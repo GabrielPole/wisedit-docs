@@ -1,0 +1,198 @@
+---
+// Componente de Sidebar com navegação hierárquica
+
+const navigationStructure = [
+  {
+    title: 'Início',
+    items: [
+      { title: 'Introdução', href: '/docs/intro' },
+      { title: 'Guia de Início', href: '/docs/guia-inicio' },
+    ]
+  },
+  {
+    title: 'Funcionalidades',
+    items: [
+      { title: 'Usuários', href: '/docs/usuarios' },
+      { title: 'Campos', href: '/docs/campos' },
+      { title: 'Assets', href: '/docs/assets' },
+      { title: 'Conexões', href: '/docs/conexoes' },
+      { title: 'Execuções', href: '/docs/execucoes' },
+      { title: 'Listagem de Políticas', href: '/docs/listagem-de-politicas' },
+    ]
+  }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="sidebar">
+  <div class="logo">
+    <a href="/">
+      <h2>Wisedit Docs</h2>
+    </a>
+  </div>
+
+  <!-- Search Box -->
+  <div class="search-container">
+    <div id="search"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    {navigationStructure.map(section => (
+      <div class="nav-section">
+        <h3 class="nav-section-title">{section.title}</h3>
+        <ul class="nav-list">
+          {section.items.map(item => (
+            <li class="nav-item">
+              <a
+                href={item.href}
+                class:list={['nav-link', { 'active': currentPath === item.href || currentPath === item.href + '/' }]}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>
+
+<style>
+  .sidebar {
+    width: 280px;
+    min-height: 100vh;
+    padding: 24px;
+    border-right: 1px solid var(--color-border, #30363d);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-bg, #0d1117);
+  }
+
+  .logo {
+    margin-bottom: 24px;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo h2 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--color-primary, #58a6ff);
+  }
+
+  .search-container {
+    margin-bottom: 24px;
+  }
+
+  .nav-section {
+    margin-bottom: 32px;
+  }
+
+  .nav-section-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 12px 0;
+    padding: 0 12px;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    margin-bottom: 4px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    color: var(--color-text, #c9d1d9);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(110, 118, 129, 0.1);
+    color: var(--color-primary, #58a6ff);
+  }
+
+  .nav-link.active {
+    background-color: rgba(88, 166, 255, 0.1);
+    color: var(--color-primary, #58a6ff);
+    border-left-color: var(--color-primary, #58a6ff);
+    font-weight: 500;
+  }
+
+  /* Scrollbar styling */
+  .sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(110, 118, 129, 0.4);
+    border-radius: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(110, 118, 129, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--color-border, #30363d);
+    }
+  }
+</style>
+
+<script is:inline>
+  // Initialize Pagefind search
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', async () => {
+      const searchContainer = document.getElementById('search');
+      if (searchContainer && window.PagefindUI) {
+        new window.PagefindUI({
+          element: '#search',
+          showSubResults: true,
+          showImages: false,
+          excerptLength: 15,
+          translations: {
+            placeholder: 'Buscar documentação...',
+            clear_search: 'Limpar',
+            load_more: 'Carregar mais resultados',
+            search_label: 'Buscar neste site',
+            filters_label: 'Filtros',
+            zero_results: 'Nenhum resultado encontrado para [SEARCH_TERM]',
+            many_results: '[COUNT] resultados encontrados para [SEARCH_TERM]',
+            one_result: '[COUNT] resultado encontrado para [SEARCH_TERM]',
+            alt_search: 'Nenhum resultado para [SEARCH_TERM]. Mostrando resultados para [DIFFERENT_TERM]',
+            search_suggestion: 'Nenhum resultado para [SEARCH_TERM]. Tente uma das seguintes pesquisas:',
+            searching: 'Buscando [SEARCH_TERM]...'
+          }
+        });
+      }
+    });
+  }
+</script>
