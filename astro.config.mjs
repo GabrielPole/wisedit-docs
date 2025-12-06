@@ -39,6 +39,26 @@ export default defineConfig({
       customCss: [
         './src/styles/custom.css',
       ],
+      head: [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/favicon-light.svg',
+            type: 'image/svg+xml',
+            media: '(prefers-color-scheme: light)',
+          },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/favicon-dark.svg',
+            type: 'image/svg+xml',
+            media: '(prefers-color-scheme: dark)',
+          },
+        },
+      ],
     }),
   ],
 });
